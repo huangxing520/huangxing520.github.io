@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/kedaya.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/kedaya.ico">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="alternate" href="/atom.xml" title="HuangXing's blog" type="application/atom+xml">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="列出所有的镜像：docker image ls  列出所有的容器：docker container ls –all  需要docker帮助时：**–help">
+<meta name="keywords" content="开发者,程序猿,极客,编程,代码,开源,IT网站,用户体验,python,docker,linux,program,C++,数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker常用命令">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;03&#x2F;docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4&#x2F;index.html">
+<meta property="og:site_name" content="HuangXing&#39;s blog">
+<meta property="og:description" content="列出所有的镜像：docker image ls  列出所有的容器：docker container ls –all  需要docker帮助时：**–help">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-04T05:33:43.000Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/11/03/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>docker常用命令 | HuangXing's blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?322c44af80ab8c3ebb84b8b7e464d9f4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">HuangXing's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">孤战江湖，戎马天涯</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-commonweal">
+
+    <a href="/404/" rel="section"><i class="fa fa-fw fa-heartbeat"></i>Commonweal 404</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="Searching..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/03/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/renwuxiang.png">
+      <meta itemprop="name" content="HuangXing">
+      <meta itemprop="description" content="现就读于中国矿业大学<br>喜欢喝着啤酒吃炸鸡">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HuangXing's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          docker常用命令
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-03 14:56:59" itemprop="dateCreated datePublished" datetime="2019-11-03T14:56:59+08:00">2019-11-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-04 13:33:43" itemprop="dateModified" datetime="2019-11-04T13:33:43+08:00">2019-11-04</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2019/11/03/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/11/03/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>3 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <ol>
+<li><p>列出所有的镜像：<br>docker image ls</p>
+</li>
+<li><p>列出所有的容器：<br>docker container ls –all</p>
+</li>
+<li><p>需要docker帮助时：<br>**–help</p>
+<a id="more"></a>
+</li>
+<li><p>docker run [OPTIONS] IMAGE [COMMAND] [ARG…]</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-a stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；<br>-d: 后台运行容器，并返回容器ID；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-i: 以交互模式运行容器，通常与 -t 同时使用；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-P: 随机端口映射，容器内部端口随机映射到主机的高端口</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-p: 指定端口映射，格式为：主机(宿主)端口:容器端口</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–name=”nginx-lb”: 为容器指定一个名称；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–dns 8.8.8.8: 指定容器使用的DNS服务器，默认和宿主一致；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–dns-search example.com: 指定容器DNS搜索域名，默认和宿主一致；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-h “mars”: 指定容器的hostname；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-m :设置容器使用内存最大值；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–net=”bridge”: 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–link=[]: 添加链接到另一个容器；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–expose=[]: 开放一个端口或一组端口；<br>5. 实例：<br>docker run -it nginx:latest /bin/bash[^1]<br>   [^1]:command(Linux命令)<br>6. docker start [OPTIONS] CONTAINER [CONTAINER…]</p>
+</blockquote>
+</blockquote>
+<ol start="7">
+<li><p>docker stop [OPTIONS] CONTAINER [CONTAINER…]</p>
+</li>
+<li><p>docker restart [OPTIONS] CONTAINER [CONTAINER…]</p>
+</li>
+<li><p>docker kill [OPTIONS] CONTAINER [CONTAINER…]</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-s :向容器发送一个信号</p>
+</blockquote>
+</blockquote>
+<ol start="10">
+<li>docker rm [OPTIONS] CONTAINER [CONTAINER…]<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-f :通过SIGKILL信号强制删除一个运行中的容器</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-l :移除容器间的网络连接，而非容器本身</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-v :-v 删除与容器关联的卷</p>
+</blockquote>
+</blockquote>
+<ol start="11">
+<li><p>docker pause [OPTIONS] CONTAINER [CONTAINER…]</p>
+</li>
+<li><p>docker unpause [OPTIONS] CONTAINER [CONTAINER…]</p>
+</li>
+<li><p>docker create ：创建一个新的容器但不启动它</p>
+</li>
+<li><p>docker exec ：在运行的容器中执行命令</p>
+</li>
+<li><p>docker exec [OPTIONS] CONTAINER COMMAND [ARG…]</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-d :分离模式: 在后台运行</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-i :即使没有附加也保持STDIN 打开</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-t :分配一个伪终端</p>
+</blockquote>
+</blockquote>
+<ol start="16">
+<li>docker ps [OPTIONS]<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-a :显示所有的容器，包括未运行的。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-f :根据条件过滤显示的内容。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–format :指定返回值的模板文件。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-l :显示最近创建的容器。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-n :列出最近创建的n个容器。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–no-trunc :不截断输出。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-q :静默模式，只显示容器编号。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-s :显示总的文件大小。</p>
+</blockquote>
+</blockquote>
+<ol start="17">
+<li>docker inspect : 获取容器/镜像的元数据。</li>
+<li>docker inspect [OPTIONS] NAME|ID [NAME|ID…]<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-f :指定返回值的模板文件。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-s :显示总的文件大小。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–type :为指定类型返回JSON。</p>
+</blockquote>
+</blockquote>
+<ol start="19">
+<li><p>docker top :查看容器中运行的进程信息，支持 ps 命令参数。容器运行时不一定有/bin/bash终端来交互执行top命令，而且容器还不一定有top命令，可以使用docker top来实现查看container中正在运行的进程。</p>
+</li>
+<li><p>docker logs : 获取容器的日志<br>docker logs [OPTIONS] CONTAINER</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-f : 跟踪日志输出</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–since :显示某个开始时间的所有日志</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-t : 显示时间戳</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–tail :仅列出最新N条容器日志</p>
+</blockquote>
+</blockquote>
+<ol start="21">
+<li><p>docker port :列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口。</p>
+</li>
+<li><p>docker commit [OPTIONS] CONTAINER [REPOSITORY(新镜像名）[:TAG]]   (提交新的镜像)</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-a :提交的镜像作者；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-c :使用Dockerfile指令来创建镜像；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-m :提交时的说明文字；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-p :在commit时，将容器暂停。</p>
+</blockquote>
+</blockquote>
+<p>例：docker commit -a “runoob.com” -m “my apache” a404c6c174a2  mymysql:v1 </p>
+<ol start="23">
+<li><p>docker cp :用于容器与主机之间的数据拷贝。</p>
+<blockquote>
+<p>docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-<br>docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH<br>中间用空格隔开！</p>
+</blockquote>
+</li>
+<li><p>docker login : 登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</p>
+</li>
+<li><p>docker logout : 登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-u :登陆的用户名</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-p :登陆的密码</p>
+</blockquote>
+</blockquote>
+<ol start="26">
+<li>docker pull [OPTIONS] NAME[:TAG|@DIGEST]<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-a :拉取所有 tagged 镜像</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–disable-content-trust :忽略镜像的校验,默认开启</p>
+</blockquote>
+</blockquote>
+<ol start="27">
+<li><p>docker push [OPTIONS] NAME[:TAG]</p>
+</li>
+<li><p>docker images : 列出本地镜像。<br>docker images [OPTIONS] [REPOSITORY[:TAG]]</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–digests :显示镜像的摘要信息；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-f :显示满足条件的镜像；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–format :指定返回值的模板文件；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–no-trunc :显示完整的镜像信息；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-q :只显示镜像ID。</p>
+</blockquote>
+</blockquote>
+<ol start="29">
+<li><p>docker rmi : 删除本地一个或多少镜像。</p>
+</li>
+<li><p>docker build 命令用于使用 Dockerfile 创建镜像。</p>
+</li>
+<li><p>docker 容器导入导出有两种方法：</p>
+</li>
+</ol>
+<blockquote>
+<p>一种是使用 save 和 load 命令<br>使用例子如下：<br>docker save ubuntu:load&gt;/root/ubuntu.tar<br>docker load&lt;ubuntu.tar</p>
+</blockquote>
+<blockquote>
+<p>一种是使用 export 和 import 命令<br>使用例子如下：<br>docker export 98ca36&gt; ubuntu.tar<br>cat ubuntu.tar | sudo docker import - ubuntu:import</p>
+</blockquote>
+<ol start="32">
+<li><p>docker info : 显示 Docker 系统信息，包括镜像和容器数。</p>
+</li>
+<li><p>必须先启动容器：sudo docker start “容器ID”,然后使用下边的命令进入shell：<br>sudo docker exec -it “容器ID” bash<br>将主机的文件复制到容器里：<br>sudo docker cp 主机目录 容器ID:容器目录</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+<div>
+    
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>docker常用命令</a></p>
+  <p><span>文章作者:</span>HuangXing</a></p>
+  <p><span>发布时间:</span>2019年11月03日 - 14:56:59</p>
+  <p><span>最后更新:</span>2019年11月04日 - 13:33:43</p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+    
+</div>
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/11/05/debian%E8%BD%AF%E4%BB%B6%E6%BA%90/" rel="prev" title="debian软件源">
+                  debian软件源 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="comments"></div>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="HuangXing"
+    src="/img/renwuxiang.png">
+  <p class="site-author-name" itemprop="name">HuangXing</p>
+  <div class="site-description" itemprop="description">现就读于中国矿业大学<br>喜欢喝着啤酒吃炸鸡</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/huangxing520" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;huangxing520" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1262181673@qq.com" title="E-Mail &amp;rarr; mailto:1262181673@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/3636197912" title="Weibo &amp;rarr; https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;3636197912" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">HuangXing</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="Symbols count total">4k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">4 mins.</span>
+</div>
+<!--
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.5.0
+  </div>
+-->
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(item => {
+    return GUEST.includes(item);
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: true,
+    appId: 'QUVTpyWgugFcnnrOhg92H88P-gzGzoHsz',
+    appKey: 'e4FcXLUKOCxKp3qiPixTum2T',
+    placeholder: "Just go go",
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn',
+    path: location.pathname,
+    recordIP: false,
+    serverURLs: ''
+  });
+}, window.Valine);
+</script>
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

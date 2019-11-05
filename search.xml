@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>debian软件源</title>
+    <url>/2019/11/05/debian%E8%BD%AF%E4%BB%B6%E6%BA%90/</url>
+    <content><![CDATA[<p>deb <a href="http://ftp.cn.debian.org/debian" target="_blank" rel="noopener">http://ftp.cn.debian.org/debian</a> stretch main<br>deb <a href="http://ftp.cn.debian.org/debian-security" target="_blank" rel="noopener">http://ftp.cn.debian.org/debian-security</a> stretch/updates main<br>deb <a href="http://ftp.cn.debian.org/debian" target="_blank" rel="noopener">http://ftp.cn.debian.org/debian</a> stretch-updates main</p>
+<a id="more"></a>
+<p>deb <a href="http://mirrors.ustc.edu.cn/debian/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/debian/</a> stretch main<br>deb <a href="http://mirrors.ustc.edu.cn/debian/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/debian/</a> stretch-updates main<br>deb <a href="http://mirrors.ustc.edu.cn/debian-security" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/debian-security</a> stretch/updates main<br>deb <a href="https://dl.winehq.org/wine-builds/debian/" target="_blank" rel="noopener">https://dl.winehq.org/wine-builds/debian/</a> stretch main<br>deb <a href="http://httpredir.debian.org/debian/" target="_blank" rel="noopener">http://httpredir.debian.org/debian/</a> stretch main contrib non-free<br>deb <a href="http://mirrors.cloud.aliyuncs.com/debian/" target="_blank" rel="noopener">http://mirrors.cloud.aliyuncs.com/debian/</a> stretch main contrib non-free<br>deb <a href="http://mirrors.cloud.aliyuncs.com/debian/" target="_blank" rel="noopener">http://mirrors.cloud.aliyuncs.com/debian/</a> stretch-updates main contrib non-free<br>deb <a href="http://mirrors.cloud.aliyuncs.com/debian/" target="_blank" rel="noopener">http://mirrors.cloud.aliyuncs.com/debian/</a> stretch-proposed-updates main non-free contrib<br>deb <a href="http://mirrors.cloud.aliyuncs.com/debian/" target="_blank" rel="noopener">http://mirrors.cloud.aliyuncs.com/debian/</a> stretch-backports main non-free contrib</p>
+<h2 id="Major-bug-fix-updates-produced-after-the-final-release-of-the"><a href="#Major-bug-fix-updates-produced-after-the-final-release-of-the" class="headerlink" title="Major bug fix updates produced after the final release of the"></a>Major bug fix updates produced after the final release of the</h2><h2 id="distribution"><a href="#distribution" class="headerlink" title="distribution."></a>distribution.</h2><p>deb-src <a href="http://mirrors.cloud.aliyuncs.com/debian/" target="_blank" rel="noopener">http://mirrors.cloud.aliyuncs.com/debian/</a> stretch-updates main contrib non-free<br>deb-src <a href="http://mirrors.cloud.aliyuncs.com/debian/" target="_blank" rel="noopener">http://mirrors.cloud.aliyuncs.com/debian/</a> stretch main contrib non-free<br>deb-src <a href="http://mirrors.cloud.aliyuncs.com/debian/" target="_blank" rel="noopener">http://mirrors.cloud.aliyuncs.com/debian/</a> stretch-proposed-updates main contrib non-free<br>deb-src <a href="http://mirrors.cloud.aliyuncs.com/debian/" target="_blank" rel="noopener">http://mirrors.cloud.aliyuncs.com/debian/</a> stretch-backports main contrib non-free</p>
+<p>deb <a href="http://mirrors.cloud.aliyuncs.com/debian-security/" target="_blank" rel="noopener">http://mirrors.cloud.aliyuncs.com/debian-security/</a> stretch/updates main non-free contrib<br>deb-src <a href="http://mirrors.cloud.aliyuncs.com/debian-security/" target="_blank" rel="noopener">http://mirrors.cloud.aliyuncs.com/debian-security/</a> stretch/updates main non-free contrib</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux,debian</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>docker常用命令</title>
+    <url>/2019/11/03/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+    <content><![CDATA[<ol>
+<li><p>列出所有的镜像：<br>docker image ls</p>
+</li>
+<li><p>列出所有的容器：<br>docker container ls –all</p>
+</li>
+<li><p>需要docker帮助时：<br>**–help</p>
+<a id="more"></a>
+</li>
+<li><p>docker run [OPTIONS] IMAGE [COMMAND] [ARG…]</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-a stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；<br>-d: 后台运行容器，并返回容器ID；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-i: 以交互模式运行容器，通常与 -t 同时使用；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-P: 随机端口映射，容器内部端口随机映射到主机的高端口</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-p: 指定端口映射，格式为：主机(宿主)端口:容器端口</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–name=”nginx-lb”: 为容器指定一个名称；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–dns 8.8.8.8: 指定容器使用的DNS服务器，默认和宿主一致；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–dns-search example.com: 指定容器DNS搜索域名，默认和宿主一致；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-h “mars”: 指定容器的hostname；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-m :设置容器使用内存最大值；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–net=”bridge”: 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–link=[]: 添加链接到另一个容器；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–expose=[]: 开放一个端口或一组端口；<br>5. 实例：<br>docker run -it nginx:latest /bin/bash[^1]<br>   [^1]:command(Linux命令)<br>6. docker start [OPTIONS] CONTAINER [CONTAINER…]</p>
+</blockquote>
+</blockquote>
+<ol start="7">
+<li><p>docker stop [OPTIONS] CONTAINER [CONTAINER…]</p>
+</li>
+<li><p>docker restart [OPTIONS] CONTAINER [CONTAINER…]</p>
+</li>
+<li><p>docker kill [OPTIONS] CONTAINER [CONTAINER…]</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-s :向容器发送一个信号</p>
+</blockquote>
+</blockquote>
+<ol start="10">
+<li>docker rm [OPTIONS] CONTAINER [CONTAINER…]<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-f :通过SIGKILL信号强制删除一个运行中的容器</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-l :移除容器间的网络连接，而非容器本身</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-v :-v 删除与容器关联的卷</p>
+</blockquote>
+</blockquote>
+<ol start="11">
+<li><p>docker pause [OPTIONS] CONTAINER [CONTAINER…]</p>
+</li>
+<li><p>docker unpause [OPTIONS] CONTAINER [CONTAINER…]</p>
+</li>
+<li><p>docker create ：创建一个新的容器但不启动它</p>
+</li>
+<li><p>docker exec ：在运行的容器中执行命令</p>
+</li>
+<li><p>docker exec [OPTIONS] CONTAINER COMMAND [ARG…]</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-d :分离模式: 在后台运行</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-i :即使没有附加也保持STDIN 打开</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-t :分配一个伪终端</p>
+</blockquote>
+</blockquote>
+<ol start="16">
+<li>docker ps [OPTIONS]<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-a :显示所有的容器，包括未运行的。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-f :根据条件过滤显示的内容。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–format :指定返回值的模板文件。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-l :显示最近创建的容器。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-n :列出最近创建的n个容器。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–no-trunc :不截断输出。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-q :静默模式，只显示容器编号。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-s :显示总的文件大小。</p>
+</blockquote>
+</blockquote>
+<ol start="17">
+<li>docker inspect : 获取容器/镜像的元数据。</li>
+<li>docker inspect [OPTIONS] NAME|ID [NAME|ID…]<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-f :指定返回值的模板文件。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-s :显示总的文件大小。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–type :为指定类型返回JSON。</p>
+</blockquote>
+</blockquote>
+<ol start="19">
+<li><p>docker top :查看容器中运行的进程信息，支持 ps 命令参数。容器运行时不一定有/bin/bash终端来交互执行top命令，而且容器还不一定有top命令，可以使用docker top来实现查看container中正在运行的进程。</p>
+</li>
+<li><p>docker logs : 获取容器的日志<br>docker logs [OPTIONS] CONTAINER</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-f : 跟踪日志输出</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–since :显示某个开始时间的所有日志</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-t : 显示时间戳</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–tail :仅列出最新N条容器日志</p>
+</blockquote>
+</blockquote>
+<ol start="21">
+<li><p>docker port :列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口。</p>
+</li>
+<li><p>docker commit [OPTIONS] CONTAINER [REPOSITORY(新镜像名）[:TAG]]   (提交新的镜像)</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-a :提交的镜像作者；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-c :使用Dockerfile指令来创建镜像；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-m :提交时的说明文字；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-p :在commit时，将容器暂停。</p>
+</blockquote>
+</blockquote>
+<p>例：docker commit -a “runoob.com” -m “my apache” a404c6c174a2  mymysql:v1 </p>
+<ol start="23">
+<li><p>docker cp :用于容器与主机之间的数据拷贝。</p>
+<blockquote>
+<p>docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-<br>docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH<br>中间用空格隔开！</p>
+</blockquote>
+</li>
+<li><p>docker login : 登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</p>
+</li>
+<li><p>docker logout : 登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-u :登陆的用户名</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-p :登陆的密码</p>
+</blockquote>
+</blockquote>
+<ol start="26">
+<li>docker pull [OPTIONS] NAME[:TAG|@DIGEST]<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-a :拉取所有 tagged 镜像</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–disable-content-trust :忽略镜像的校验,默认开启</p>
+</blockquote>
+</blockquote>
+<ol start="27">
+<li><p>docker push [OPTIONS] NAME[:TAG]</p>
+</li>
+<li><p>docker images : 列出本地镜像。<br>docker images [OPTIONS] [REPOSITORY[:TAG]]</p>
+<blockquote>
+<p>OPTIONS说明：</p>
+</blockquote>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<p>-a :列出本地所有的镜像（含中间映像层，默认情况下，过滤掉中间映像层）；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–digests :显示镜像的摘要信息；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-f :显示满足条件的镜像；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–format :指定返回值的模板文件；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>–no-trunc :显示完整的镜像信息；</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>-q :只显示镜像ID。</p>
+</blockquote>
+</blockquote>
+<ol start="29">
+<li><p>docker rmi : 删除本地一个或多少镜像。</p>
+</li>
+<li><p>docker build 命令用于使用 Dockerfile 创建镜像。</p>
+</li>
+<li><p>docker 容器导入导出有两种方法：</p>
+</li>
+</ol>
+<blockquote>
+<p>一种是使用 save 和 load 命令<br>使用例子如下：<br>docker save ubuntu:load&gt;/root/ubuntu.tar<br>docker load&lt;ubuntu.tar</p>
+</blockquote>
+<blockquote>
+<p>一种是使用 export 和 import 命令<br>使用例子如下：<br>docker export 98ca36&gt; ubuntu.tar<br>cat ubuntu.tar | sudo docker import - ubuntu:import</p>
+</blockquote>
+<ol start="32">
+<li><p>docker info : 显示 Docker 系统信息，包括镜像和容器数。</p>
+</li>
+<li><p>必须先启动容器：sudo docker start “容器ID”,然后使用下边的命令进入shell：<br>sudo docker exec -it “容器ID” bash<br>将主机的文件复制到容器里：<br>sudo docker cp 主机目录 容器ID:容器目录</p>
+</li>
+</ol>
+]]></content>
+  </entry>
+</search>

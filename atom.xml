@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>HuangXing&#39;s blog</title>
+  
+  <subtitle>孤战江湖，戎马天涯</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-11-05T11:52:54.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>HuangXing</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>debian软件源</title>
+    <link href="http://yoursite.com/2019/11/05/debian%E8%BD%AF%E4%BB%B6%E6%BA%90/"/>
+    <id>http://yoursite.com/2019/11/05/debian软件源/</id>
+    <published>2019-11-05T11:45:21.959Z</published>
+    <updated>2019-11-05T11:52:54.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;deb &lt;a href=&quot;http://ftp.cn.debian.org/debian&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://ftp.cn.debian.org/debian&lt;/a&gt; stretch main&lt;br&gt;deb &lt;a href=&quot;http://ftp.cn.debian.org/debian-security&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://ftp.cn.debian.org/debian-security&lt;/a&gt; stretch/updates main&lt;br&gt;deb &lt;a href=&quot;http://ftp.cn.debian.org/debian&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://ftp.cn.debian.org/debian&lt;/a&gt; stretch-updates main&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
+    
+    
+      <category term="linux,debian" scheme="http://yoursite.com/tags/linux-debian/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker常用命令</title>
+    <link href="http://yoursite.com/2019/11/03/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/2019/11/03/docker常用命令/</id>
+    <published>2019-11-03T06:56:59.616Z</published>
+    <updated>2019-11-04T05:33:43.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;列出所有的镜像：&lt;br&gt;docker image ls&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;列出所有的容器：&lt;br&gt;docker container ls –all&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;需要docker帮助时：&lt;br&gt;**–help&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
