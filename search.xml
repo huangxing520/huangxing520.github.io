@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>github常用licence</title>
+    <url>/2019/11/05/github%E5%B8%B8%E7%94%A8licence/</url>
+    <content><![CDATA[<p>github常用licence有以下几种，但其中的含义解释很麻烦，简化一下用下面这张图就可以看出区别，并且给日常使用提供了参考。<br><img src="https://ws1.sinaimg.cn/large/006Xmmmggy1g5ye3rbh3nj318g0rsn02.jpg" alt="licence"><br>注：图片转载自阮一峰博客。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>debian软件源</title>
     <url>/2019/11/05/debian%E8%BD%AF%E4%BB%B6%E6%BA%90/</url>
     <content><![CDATA[<p>deb <a href="http://ftp.cn.debian.org/debian" target="_blank" rel="noopener">http://ftp.cn.debian.org/debian</a> stretch main<br>deb <a href="http://ftp.cn.debian.org/debian-security" target="_blank" rel="noopener">http://ftp.cn.debian.org/debian-security</a> stretch/updates main<br>deb <a href="http://ftp.cn.debian.org/debian" target="_blank" rel="noopener">http://ftp.cn.debian.org/debian</a> stretch-updates main</p>
